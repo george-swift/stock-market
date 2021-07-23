@@ -1,0 +1,42 @@
+.wrap-ticker {
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  padding-left: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.wrap-ticker,
+.ticker {
+  box-sizing: content-box;
+  height: 1.85rem;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker {
+  display: inline-block;
+  line-height: 1.85rem;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation: ticker 125s linear infinite;
+}
+
+.ticker__item {
+  display: inline-block;
+  padding: 0 1rem;
+  font-size: 0.85rem;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+}
