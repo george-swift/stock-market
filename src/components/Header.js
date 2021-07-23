@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
-import { FaHome, FaChartLine, FaInfoCircle } from 'react-icons/fa';
+import {
+  FaHome, FaChartLine, FaInfoCircle, FaTrademark,
+} from 'react-icons/fa';
 
 const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <div className="container-fluid">
-      <Link to="/" className="navbar-brand">Stock Market</Link>
+      <Link to="/" className="navbar-brand">
+        <span className="me-2">Stock Market</span>
+        <FaTrademark />
+      </Link>
       <button
         type="button"
         className="navbar-toggler"
@@ -27,7 +32,7 @@ const Header = () => (
           <li className="nav-item">
             <Link to="/listings" className="nav-link">
               <FaChartLine />
-              <span className="ms-2">ETF List</span>
+              <span className="ms-2">Stock List</span>
             </Link>
           </li>
           <li className="nav-item">
