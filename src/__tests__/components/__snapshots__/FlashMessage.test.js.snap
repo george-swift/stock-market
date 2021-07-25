@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of the FlashMessage component should render correctly 1`] = `
+<div
+  className="alert alert-danger"
+  role="alert"
+>
+  Something went wrong! Try again.
+</div>
+`;
