@@ -1,51 +1,104 @@
-import { call, put } from '@redux-saga/core/effects';
+import { runSaga } from 'redux-saga';
 import * as api from '../api';
 import * as sagas from '../sagas';
+import { fetchListingStarted, fetchNasdaqStarted } from '../actions';
 import {
-  FETCH_ETF_LIST_STARTED, FETCH_ETF_LIST_SUCCEEDED,
-  FETCH_NASDAQ_STARTED, FETCH_NASDAQ_SUCCEEDED,
+  FETCH_ETF_LIST_FAILED, FETCH_ETF_LIST_SUCCEEDED,
+  FETCH_NASDAQ_FAILED, FETCH_NASDAQ_SUCCEEDED,
 } from '../constants';
 
+const recordSaga = async (saga, initialAction) => {
+  const dispatched = [];
+
+  await runSaga(
+    {
+      dispatch: (action) => dispatched.push(action),
+    },
+    saga,
+    initialAction,
+  ).done;
+
+  return dispatched;
+};
+
+const mockListing = {
+  data: Array(105).fill({
+    symbol: 'TEST',
+  }),
+};
+
+const mockNasdaq100 = {
+  data: Array(100).fill({
+    sector: 'Technology',
+  }),
+};
+
 describe('Testing StockMarket sagas', () => {
-  test('should handle the fetch ETF listing action if successful', () => {
-    const mockFetch = {
-      data: Array(105).fill({
-        symbol: 'TEST',
-      }),
-    };
+  api.fetchListing = jest.fn();
+  api.fetchNasdaq = jest.fn();
 
-    const listing = mockFetch.data.slice(0, 101);
-
-    const iterator = sagas.fetchETF({ type: FETCH_ETF_LIST_STARTED });
-
-    expect(iterator.next().value).toEqual(call(api.fetchListing));
-
-    expect(iterator.next(mockFetch).value).toStrictEqual(put({
-      type: FETCH_ETF_LIST_SUCCEEDED,
-      payload: listing,
-    }));
-
-    expect(iterator.next().done).not.toBe(false);
-    expect(iterator.next().done).toBe(true);
+  beforeEach(() => {
+    jest.resetAllMocks();
   });
 
-  test('should handle the fetch Nasdaq action if successful', () => {
-    const mockFetch = {
-      data: Array(100).fill({
-        sector: 'Technology',
-      }),
-    };
+  test('should handle the fetch ETF listing action if successful', async () => {
+    const { data } = mockListing;
+    const listing = data.slice(0, 101);
 
-    const iterator = sagas.fetchConstituents({ type: FETCH_NASDAQ_STARTED });
+    api.fetchListing.mockImplementation(() => Promise.resolve({ data }));
 
-    expect(iterator.next().value).toEqual(call(api.fetchNasdaq));
+    const dispatched = await recordSaga(sagas.fetchETF, fetchListingStarted());
 
-    expect(iterator.next(mockFetch).value).toStrictEqual(put({
+    expect(api.fetchListing).toHaveBeenCalledTimes(1);
+
+    expect(dispatched).toContainEqual({
+      type: FETCH_ETF_LIST_SUCCEEDED,
+      payload: listing,
+    });
+  });
+
+  test('should handle the fetch ETF listing action if unsuccesful', async () => {
+    const error = 'Could not retrieve ETF Listing';
+
+    api.fetchListing.mockImplementation(() => Promise.reject(new Error(error)));
+
+    const secondDispatched = await recordSaga(sagas.fetchETF, fetchListingStarted());
+
+    expect(api.fetchListing).toHaveBeenCalledTimes(1);
+
+    expect(secondDispatched).toContainEqual({
+      type: FETCH_ETF_LIST_FAILED,
+      payload: { error },
+    });
+  });
+
+  test('should handle the fetch Nasdaq action if successful', async () => {
+    const { data } = mockNasdaq100;
+
+    api.fetchNasdaq.mockImplementation(() => Promise.resolve({ data }));
+
+    const dispatched = await recordSaga(sagas.fetchConstituents, fetchNasdaqStarted());
+
+    expect(api.fetchNasdaq).toHaveBeenCalledTimes(1);
+
+    expect(dispatched).toContainEqual({
       type: FETCH_NASDAQ_SUCCEEDED,
-      payload: mockFetch.data,
-    }));
+      payload: data,
+    });
+  });
 
-    expect(iterator.next().done).not.toBe(false);
-    expect(iterator.next().done).toBe(true);
+  test('should handle the fetch Nasdaq action if unsuccessful', async () => {
+    const error = 'Could not retrieve Nasdaq100';
+
+    api.fetchNasdaq.mockImplementation(() => Promise.reject(new Error(error)));
+
+    const dispatched = await recordSaga(sagas.fetchConstituents, fetchNasdaqStarted());
+
+    expect(api.fetchNasdaq).toHaveBeenCalledTimes(1);
+
+    expect(dispatched).toContainEqual({
+      type: FETCH_NASDAQ_FAILED,
+      payload: { error },
+    });
   });
 });
