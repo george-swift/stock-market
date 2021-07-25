@@ -1,15 +1,16 @@
 import { FaSpinner } from 'react-icons/fa';
 import { useFetch } from '../api';
+import FlashMessage from '../components/FlashMessage';
 import Story from '../components/Story';
 
 const Stories = () => {
-  const { data: stories, error, loading } = useFetch('stock_news?limit=15');
+  const { data: stories, error, loading } = useFetch('stock_news?limit=15&');
 
   if (error) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <FlashMessage>
         Something went wrong! Try reloading the page.
-      </div>
+      </FlashMessage>
     );
   }
 

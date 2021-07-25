@@ -7,7 +7,7 @@ const Story = ({
   site,
 }) => (
   <div className="card">
-    <div className="card-header fw-bold">{symbol}</div>
+    <div className="card-header">{symbol}</div>
     <div className="card-body">
       <blockquote className="blockquote mb-0">
         <h5>{title}</h5>
