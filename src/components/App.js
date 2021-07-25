@@ -12,6 +12,7 @@ import Ticker from '../containers/Ticker';
 import Home from './Home';
 import Nasdaq from '../containers/Nasdaq';
 import About from './About';
+import Profile from '../containers/Profile';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/listings" element={<Nasdaq />} />
+          <Route path="/company/:id" element={<Profile />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
