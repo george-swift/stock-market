@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaRegFolderOpen, FaSpinner } from 'react-icons/fa';
 import { filterListing } from '../actions';
 import { getFilteredList } from '../selectors';
+import FlashMessage from '../components/FlashMessage';
 import List from '../components/List';
 
 const Directory = () => {
@@ -11,6 +13,10 @@ const Directory = () => {
 
   const handleSearch = (e) => dispatch(filterListing(e.target.value));
 
+  const navigate = useNavigate();
+
+  const getUrl = (symbol) => navigate(`/company/${symbol}`);
+
   return (
     <>
       <h2>
@@ -19,9 +25,9 @@ const Directory = () => {
       </h2>
       {
         error !== null && (
-          <div className="alert alert-danger" role="alert">
+          <FlashMessage>
             Error...Try reloading the page.
-          </div>
+          </FlashMessage>
         )
       }
       {isLoading && <p className="page-loading"><FaSpinner /></p>}
@@ -40,8 +46,9 @@ const Directory = () => {
                 symbol={company.symbol}
                 name={company.name}
                 exchange={company.exchange}
+                getUrl={getUrl}
               />
-            )) ?? <li>No companies in directory</li>
+            )) ?? <li>No companies listed in directory</li>
           }
         </ul>
       </div>
