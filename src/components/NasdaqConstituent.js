@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
 
-const Company = ({
+const Constituent = ({
   symbol,
   name,
   sector,
   hq,
+  getUrl,
 }) => (
   <tr>
     <th scope="row">{symbol}</th>
     <td>{name}</td>
     <td>{sector}</td>
-    <td>{hq || '- -'}</td>
+    <td>{hq || '...'}</td>
     <td>
       <button
         type="button"
         className="btn btn-sm btn-outline-dark"
+        onClick={() => getUrl(symbol)}
       >
         Get Data
       </button>
@@ -22,13 +24,14 @@ const Company = ({
   </tr>
 );
 
-Company.propTypes = {
+Constituent.propTypes = {
   symbol: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   sector: PropTypes.string.isRequired,
   hq: PropTypes.string,
+  getUrl: PropTypes.func.isRequired,
 };
 
-Company.defaultProps = { hq: '- -' };
+Constituent.defaultProps = { hq: '' };
 
-export default Company;
+export default Constituent;

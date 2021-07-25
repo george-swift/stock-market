@@ -1,8 +1,9 @@
 import '../assets/Sass/Listing.scss';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaSpinner } from 'react-icons/fa';
 import { getFilteredNasdaq100 } from '../selectors';
-import Company from '../components/NasdaqConstituent';
+import Constituent from '../components/NasdaqConstituent';
 import { filterNasdaq } from '../actions';
 
 const Nasdaq = () => {
@@ -12,10 +13,14 @@ const Nasdaq = () => {
 
   const handleSearch = (e) => dispatch(filterNasdaq(e.target.value));
 
+  const navigate = useNavigate();
+
+  const getUrl = (symbol) => navigate(`/company/${symbol}`);
+
   return (
-    <div className="container-fluid px-0">
+    <div className="container-fluid px-0 listings">
       <div className="overview">
-        <h2>List of Nasdaq 100 Companies</h2>
+        <h2>List of NASDAQ 100 Companies</h2>
         <input
           type="search"
           className="form-control form-control-sm mb-3"
@@ -31,23 +36,24 @@ const Nasdaq = () => {
             <th scope="col">Name</th>
             <th scope="col">Sector</th>
             <th scope="col">Headquarter</th>
-            <th scope="col">Company Quote</th>
+            <th scope="col">Financial Model</th>
           </tr>
         </thead>
         <tbody>
           {
             companies?.map((company) => (
-              <Company
+              <Constituent
                 key={company.name}
                 symbol={company.symbol}
                 name={company.name}
                 sector={company.sector}
                 hq={company.headQuarter}
+                getUrl={getUrl}
               />
             )) ?? (
               <tr>
                 <th scope="row">n/a</th>
-                <td colSpan="4">No companies in Nasdaq100</td>
+                <td colSpan="4">No companies listed in NASDAQ 100</td>
               </tr>
             )
           }
