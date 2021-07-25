@@ -4,7 +4,7 @@ import FlashMessage from '../components/FlashMessage';
 import Story from '../components/Story';
 
 const Stories = () => {
-  const { data: stories, error, loading } = useFetch('stock_news?limit=15&');
+  const { data: stories = [], error, loading } = useFetch('stock_news?limit=15&');
 
   if (error) {
     return (
@@ -14,24 +14,21 @@ const Stories = () => {
     );
   }
 
+  if (loading) return (<p className="page-loading"><FaSpinner /></p>);
+
   return (
-    <>
-      {loading && <p className="page-loading"><FaSpinner /></p>}
-      {
-        stories?.map((item) => {
-          const [, date] = item.publishedDate.split(' ');
-          return (
-            <Story
-              key={date}
-              symbol={item.symbol}
-              title={item.title}
-              text={item.text}
-              site={item.site}
-            />
-          );
-        })
-      }
-    </>
+    stories?.map((item) => {
+      const [, date] = item.publishedDate.split(' ');
+      return (
+        <Story
+          key={date}
+          symbol={item.symbol}
+          title={item.title}
+          text={item.text}
+          site={item.site}
+        />
+      );
+    })
   );
 };
 
