@@ -36,6 +36,7 @@ describe('Querying the Model component', () => {
     const companyCeo = screen.getByText('CEO:').nextSibling.nextSibling;
     expect(companyCeo).toHaveTextContent(company.ceo);
     const companyWebsite = screen.getByText('Website:').nextSibling.nextSibling;
+    expect(companyWebsite).toHaveAttribute('href', company.website);
     expect(companyWebsite).toHaveTextContent(company.website);
   });
 

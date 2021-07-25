@@ -28,7 +28,7 @@ const Model = ({ company }) => {
       <p className="col-lg-4">
         <span className="fw-bold">Website:</span>
         <br />
-        {website}
+        <a href={website} target="_blank" rel="noreferrer">{website}</a>
       </p>
       <p className="col-lg-3">
         <span className="fw-bold">Company Name:</span>

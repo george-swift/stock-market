@@ -22,7 +22,13 @@ Array [
       Website:
     </span>
     <br />
-    www.test.com
+    <a
+      href="www.test.com"
+      rel="noreferrer"
+      target="_blank"
+    >
+      www.test.com
+    </a>
   </p>,
   <p
     className="col-lg-3"
