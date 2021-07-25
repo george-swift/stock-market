@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_BASE_URL } from '../constants';
 
-const client = axios.create({ baseURL: API_BASE_URL });
+export const client = axios.create({ baseURL: API_BASE_URL });
 
 export const fetchListing = () => client.get(`stock/list?apikey=${process.env.REACT_APP_API_KEY}`);
 
@@ -15,7 +15,7 @@ export const useFetch = (service) => {
 
   const fetchAPI = useCallback(async () => {
     try {
-      const response = await client.get(`${service}&apikey=${process.env.REACT_APP_API_KEY}`);
+      const response = await client.get(`${service}apikey=${process.env.REACT_APP_API_KEY}`);
       const json = await response.data;
       setData(json);
     } catch (e) {
