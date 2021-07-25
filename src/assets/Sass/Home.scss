@@ -10,26 +10,14 @@
   }
 }
 
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.page-loading {
-  text-align: center;
-  animation: spin 1.5s linear infinite;
-  font-size: 300%;
-}
-
 .card {
   background: transparent;
   margin-bottom: 1.5rem;
 }
 
-.card-body {
-  padding-top: 0;
-}
+.card-header { font-weight: 600; }
+
+.card-body { padding-top: 0; }
 
 .blockquote {
   h5 {
@@ -61,7 +49,7 @@
   p {
     margin: 0;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   h4 {

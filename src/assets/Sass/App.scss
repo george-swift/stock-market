@@ -21,3 +21,26 @@
     text-align: center;
   }
 }
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.page-loading {
+  text-align: center;
+  animation: spin 1.5s linear infinite;
+  font-size: 300%;
+}
+
+.alert { border-radius: 0; }
+
+.about {
+  a { text-decoration: none; }
+
+  p {
+    max-width: 700px;
+    margin: auto;
+  }
+}
