@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of the Story component should render correctly 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-header"
+  >
+    SQ
+  </div>
+  <div
+    className="card-body"
+  >
+    <blockquote
+      className="blockquote mb-0"
+    >
+      <h5>
+        News
+      </h5>
+      <p>
+        Stub text
+      </p>
+      <footer
+        className="blockquote-footer"
+      >
+        <cite
+          title="Test reporters"
+        >
+          Test reporters
+        </cite>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+`;
