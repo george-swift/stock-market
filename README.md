@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Stock Market App
+![](./src/assets/images/stock-market.gif)
+## Live Link
+[Get up-to-date stock news and prices on the Stock Market](https://app-stock-market.herokuapp.com/)
+## Objectives
+- Handling lifecycle methods and resuable logic with React Hooks
+- Using client side routes with React Router
+- Interacting with an API Backend
+- Using Redux in a React application
+- Structuring a Redux store
+- Using React Redux Hooks
+- Managing async workflows with Redux Sagas
+- Calculating derived data with Redux Selectors
+- Unit testing a React and Redux application
+- Functional Programming
+- Meeting model client requirements
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+Stock Market &trade; is a single page application built with React and Redux. It relies on data provided by the [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/) to display up-to-date news and stock prices covering, but not limited to, the NYSE and NASDAQ. The `Home` page provides top stories in the stock market and a catalogue of trading companies, each with their ticker symbols, name and exchange. To view a company's financial profile, users can click on `See Profile`. The search field above can be used to lookup or filter companies. The `Stock List` page contains a list of all NASDAQ 100 constituents. Companies can be filtered by sector, name or symbol. The `Get Data` button allows users to get more details for companies listed. These details are provided in the `Financial Model` page. The `About` page contains attribution to the API backend and developer of the Stock Market app. On all pages, the `Ticker` keeps users updated with stock prices. This application is deployed to Heroku.
 
-## Available Scripts
 
-In the project directory, you can run:
+_Filtering companies listed on the NASDAQ 100 by sector_
 
-### `npm start`
+![](./src/assets/images/nasdaq.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_Viewing a company's financial model_
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![](./src/assets/images/financial-model.png)
 
-### `npm test`
+## Prerequisites
+- Internet Connection
+- An Integrated Development Environment
+- Chrome, Firefox or Safari across all screen sizes
+- Node Package Manager [(NPM)](https://docs.npmjs.com/about-npm)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
+- Node.js
+- React
+- React Router v6
+- Redux
+- Redux Saga
+- Javascript ES6+
+- npm packages
+- Bootstrap 5
+- SCSS
+- HTML5/CSS3
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
+- To get started with the app, sign up on the [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/) to get your API key.
+- Clone this project by running `git clone https://github.com/george-swift/stock-market.git`
+- Create a `.env` file in the root directory. Inside the `.env` file, save your API key in the format shown below:
+```
+REACT_APP_API_KEY=YOUR API KEY HERE
+```
+- Run `npm install` to install the needed packages and dependencies.
+- After installing all dependencies, run `npm start` to fire up a local server with live reloading.
+- If not already redirected, visit `http://localhost:3000/` in your browser to use the Stock Market app.
+- To terminate the server, enter `Ctrl + C` in your terminal.
+- To get a production bundle, run `npm run build`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Testing
+Run `npm test` to get a verbose test report.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### *Testing Tools*
+- React Testing Library
+- Jest Snapshot
+- Enzyme
 
-### `npm run eject`
+## Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+👤 &nbsp; **Ubong George**
+- LinkedIn: [Ubong George](https://www.linkedin.com/in/ubong-itok)
+- Twitter: [@\_\_pragmaticdev](https://twitter.com/__pragmaticdev)
+- GitHub: [@george-swift](https://github.com/george-swift)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Acknowledgments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/api/api-reference)
+- [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/)
+- [Microverse](https://www.microverse.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Show your support
 
-## Learn More
+Leave a :star:️ &nbsp; if you like this project!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
