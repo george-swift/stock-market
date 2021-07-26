@@ -1,6 +1,7 @@
 import * as selectors from '../selectors';
 import { filterListing, filterNasdaq } from '../actions';
 import filter from '../reducers/filter';
+import { FILTER } from '../constants';
 
 const mockState = {
   listings: [
@@ -37,10 +38,7 @@ const mockState = {
       headQuarter: 'San Francisco, CALIFORNIA',
     },
   ],
-  filter: {
-    listing: '',
-    nasdaq: '',
-  },
+  filter: { ...FILTER },
 };
 
 describe('Testing StockMarket selectors', () => {
