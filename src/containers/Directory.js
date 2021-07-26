@@ -1,15 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaRegFolderOpen, FaSpinner } from 'react-icons/fa';
-import { filterListing } from '../actions';
+import { filterListing, filterMarkets } from '../actions';
 import { getFilteredList } from '../selectors';
 import FlashMessage from '../components/FlashMessage';
+import ExchangeFilter from '../components/ExchangeFilter';
 import List from '../components/List';
 
 const Directory = () => {
   const { isLoading, error } = useSelector((state) => state.notifications);
   const companies = useSelector((state) => getFilteredList(state));
   const dispatch = useDispatch();
+
+  const handleMarkets = (filter) => dispatch(filterMarkets(filter));
 
   const handleSearch = (e) => dispatch(filterListing(e.target.value));
 
@@ -32,10 +35,11 @@ const Directory = () => {
       }
       {isLoading && <p className="page-loading"><FaSpinner /></p>}
       <div>
+        <ExchangeFilter filterExchange={handleMarkets} />
         <input
           type="search"
           className="form-control form-control-sm mb-3"
-          placeholder="e.g AMZN"
+          placeholder="Search trading symbol e.g GE"
           onChange={handleSearch}
         />
         <ul className="p-0 listings">
