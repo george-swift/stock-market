@@ -1,6 +1,6 @@
 import {
   UI,
-  FILTER, FILTER_LISTING, FILTER_NASDAQ,
+  FILTER, FILTER_MARKETS, FILTER_LISTING, FILTER_NASDAQ,
   FETCH_ETF_LIST_STARTED, FETCH_ETF_LIST_SUCCEEDED, FETCH_ETF_LIST_FAILED,
   FETCH_NASDAQ_STARTED, FETCH_NASDAQ_FAILED, FETCH_NASDAQ_SUCCEEDED,
 } from '../constants';
@@ -49,6 +49,18 @@ describe('Testing the Filter reducer', () => {
     expect(filter(undefined, {})).toStrictEqual(expect.objectContaining({ ...FILTER }));
   });
 
+  test('should update state as user selects an exchange from the directory', () => {
+    const action = {
+      type: FILTER_MARKETS,
+      payload: 'Nasdaq Global Select',
+    };
+
+    expect(filter(undefined, action)).toStrictEqual(expect.objectContaining({
+      ...FILTER,
+      markets: 'Nasdaq Global Select',
+    }));
+  });
+
   test('should update state as user attempts a lookup in listing directory', () => {
     const action = {
       type: FILTER_LISTING,
@@ -56,8 +68,8 @@ describe('Testing the Filter reducer', () => {
     };
 
     expect(filter(undefined, action)).toStrictEqual(expect.objectContaining({
+      ...FILTER,
       listing: 'sq',
-      nasdaq: '',
     }));
   });
 
@@ -68,7 +80,7 @@ describe('Testing the Filter reducer', () => {
     };
 
     expect(filter(undefined, action)).toStrictEqual(expect.objectContaining({
-      listing: '',
+      ...FILTER,
       nasdaq: 'Techn',
     }));
   });
