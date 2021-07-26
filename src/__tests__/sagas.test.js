@@ -57,7 +57,7 @@ describe('Testing StockMarket sagas', () => {
     });
   });
 
-  test('should handle the fetch ETF listing action if unsuccesful', async () => {
+  test('should handle the fetch ETF listing action if unsuccessful', async () => {
     const error = 'Could not retrieve ETF Listing';
 
     api.fetchListing.mockImplementation(() => Promise.reject(new Error(error)));
