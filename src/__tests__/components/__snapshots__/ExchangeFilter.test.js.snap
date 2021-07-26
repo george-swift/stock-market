@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of the ExchangeFilter Component should render correctly 1`] = `
+<select
+  className="form-select my-3"
+  onChange={[Function]}
+>
+  <option
+    value="All Markets"
+  >
+    All Markets
+  </option>
+  <option
+    value="New York Stock Exchange"
+  >
+    New York Stock Exchange
+  </option>
+  <option
+    value="Nasdaq Global Select"
+  >
+    Nasdaq Global Select
+  </option>
+</select>
+`;
