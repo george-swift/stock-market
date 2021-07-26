@@ -13,6 +13,7 @@ import Home from './Home';
 import Nasdaq from '../containers/Nasdaq';
 import About from './About';
 import Profile from '../containers/Profile';
+import NotFound from './NotFound';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/listings" element={<Nasdaq />} />
           <Route path="/company/:id" element={<Profile />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
