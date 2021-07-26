@@ -1,6 +1,7 @@
 import {
   FETCH_ETF_LIST_STARTED,
   FETCH_NASDAQ_STARTED,
+  FILTER_MARKETS,
   FILTER_LISTING,
   FILTER_NASDAQ,
 } from '../constants';
@@ -11,6 +12,13 @@ describe('Testing synchronous action creators', () => {
   it('should start the fetch ETF listing action', () => {
     expect(actions.fetchListingStarted()).toStrictEqual(expect.objectContaining({
       type: FETCH_ETF_LIST_STARTED,
+    }));
+  });
+
+  it('should filter listings by exchange markets', () => {
+    expect(actions.filterMarkets('Nasdaq Global Select')).toStrictEqual(expect.objectContaining({
+      type: FILTER_MARKETS,
+      payload: 'Nasdaq Global Select',
     }));
   });
 
