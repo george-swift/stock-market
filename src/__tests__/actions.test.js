@@ -4,6 +4,7 @@ import {
   FILTER_MARKETS,
   FILTER_LISTING,
   FILTER_NASDAQ,
+  RESET_FILTERS,
 } from '../constants';
 
 import * as actions from '../actions';
@@ -40,5 +41,11 @@ describe('Testing synchronous action creators', () => {
       type: FILTER_NASDAQ,
       payload: 'Utilities',
     }));
+  });
+
+  it('should create the reset filter action', () => {
+    expect(actions.resetFilters()).toStrictEqual(
+      expect.objectContaining({ type: RESET_FILTERS }),
+    );
   });
 });
