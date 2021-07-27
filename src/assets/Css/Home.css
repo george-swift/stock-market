@@ -81,3 +81,9 @@
   transform: scale(1) translateY(-2px);
   transition: 0.4s ease-in;
 }
+
+@media screen and (max-width: 1200px) {
+  .company {
+    display: block;
+  }
+}
