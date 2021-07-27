@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of the List component should render correctly 1`] = `
+<li>
+  <div
+    className="company"
+  >
+    <p
+      className="text-white-50"
+    >
+      MSFT
+    </p>
+    <h4
+      className="my-1"
+    >
+      Microsoft
+    </h4>
+    <small
+      className="fst-italic text-white-50"
+    >
+      NASDAQ
+    </small>
+  </div>
+  <button
+    className="btn btn-sm btn-outline-light"
+    onClick={[Function]}
+    type="button"
+  >
+    See Profile
+  </button>
+</li>
+`;

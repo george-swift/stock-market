@@ -1,0 +1,46 @@
+.app {
+  min-height: 100vh;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  padding: 0;
+}
+
+.nav-item { margin-right: 1rem; }
+
+@media screen and (max-width: 768px) {
+  .nav-item { margin: 0; }
+
+  .nav-link {
+    text-align: center;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.page-loading {
+  text-align: center;
+  animation: spin 1.5s linear infinite;
+  font-size: 300%;
+}
+
+.alert { border-radius: 0; }
+
+.about {
+  a { text-decoration: none; }
+
+  p {
+    max-width: 700px;
+    margin: auto;
+  }
+}
