@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 import {
   render, within, screen, fireEvent,
 } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import List from '../../components/List';
 
 const symbol = 'MSFT';
@@ -14,7 +15,9 @@ describe('Snapshot of the List component', () => {
   it('should render correctly', () => {
     const tree = renderer
       .create(
-        <List symbol={symbol} name={name} exchange={exchange} getUrl={getUrl} />,
+        <Router>
+          <List symbol={symbol} name={name} exchange={exchange} getUrl={getUrl} />
+        </Router>,
       ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -22,7 +25,9 @@ describe('Snapshot of the List component', () => {
 
 describe('Querying the List component', () => {
   beforeEach(() => render(
-    <List symbol={symbol} name={name} exchange={exchange} getUrl={getUrl} />,
+    <Router>
+      <List symbol={symbol} name={name} exchange={exchange} getUrl={getUrl} />
+    </Router>,
   ));
 
   it('should have details for each provided company', () => {
@@ -33,18 +38,16 @@ describe('Querying the List component', () => {
 
     const name = within(companyInfo).getByText('MSFT').nextSibling;
     expect(name).toBeInTheDocument();
-    expect(name).toHaveTextContent('Microsoft');
+    expect(name.firstChild).toHaveTextContent('Microsoft');
 
-    const exchange = within(companyInfo).getByText('Microsoft').nextSibling;
+    const exchange = screen.getByText('NASDAQ');
     expect(exchange).toBeInTheDocument();
-    expect(exchange).toHaveTextContent('NASDAQ');
   });
 
   it("should have a button to view the company's financial model", () => {
-    const button = screen.getByRole('button');
-    expect(button).toHaveProperty('type', 'button');
-    expect(button).toHaveTextContent('See Profile');
-    fireEvent.click(button);
+    const link = screen.getByRole('link');
+    expect(link).toHaveAttribute('href', '/company/MSFT');
+    fireEvent.click(link);
     expect(getUrl).toHaveBeenCalledTimes(1);
   });
 });
