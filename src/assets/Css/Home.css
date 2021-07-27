@@ -40,9 +40,6 @@
 }
 
 .listings li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0.3rem 1rem;
   margin-bottom: 1.25rem;
   background-color: rgba(255, 255, 255, 0.2);
@@ -59,4 +56,28 @@
 .listings h4 {
   font-size: 1rem;
   font-weight: 300;
+}
+
+.company {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.company a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.company p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.company h4 {
+  max-width: 280px;
+}
+
+.company h4:hover {
+  transform: scale(1) translateY(-2px);
+  transition: 0.4s ease-in;
 }
