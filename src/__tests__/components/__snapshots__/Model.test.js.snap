@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot of the Model component should render correctly 1`] = `
+Array [
+  <p
+    className="col-lg-3"
+  >
+    <span
+      className="fw-bold"
+    >
+      CEO:
+    </span>
+    <br />
+    Devs
+  </p>,
+  <p
+    className="col-lg-4"
+  >
+    <span
+      className="fw-bold"
+    >
+      Website:
+    </span>
+    <br />
+    <a
+      href="www.test.com"
+      rel="noreferrer"
+      target="_blank"
+    >
+      www.test.com
+    </a>
+  </p>,
+  <p
+    className="col-lg-3"
+  >
+    <span
+      className="fw-bold"
+    >
+      Company Name:
+    </span>
+    <br />
+    Test Co
+  </p>,
+  <p
+    className="col-lg-2"
+  >
+    <span
+      className="fw-bold"
+    >
+      Symbol:
+    </span>
+    <br />
+    TS
+  </p>,
+  <p
+    className="col-lg-3"
+  >
+    <span
+      className="fw-bold"
+    >
+      Sector:
+    </span>
+    <br />
+    Tech
+  </p>,
+  <p
+    className="col-lg-4"
+  >
+    <span
+      className="fw-bold"
+    >
+      Industry:
+    </span>
+    <br />
+    SF
+  </p>,
+  <p
+    className="col-lg-3"
+  >
+    <span
+      className="fw-bold"
+    >
+      Fulltime Employees:
+    </span>
+    <br />
+    1,000
+  </p>,
+  <p
+    className="col-lg-2"
+  >
+    <span
+      className="fw-bold"
+    >
+      IPO Date:
+    </span>
+    <br />
+    2021-07-31
+  </p>,
+  <p
+    className="col-lg-3"
+  >
+    <span
+      className="fw-bold"
+    >
+      Market Cap:
+    </span>
+    <br />
+    $5,000
+  </p>,
+  <p
+    className="col-lg-2"
+  >
+    <span
+      className="fw-bold"
+    >
+      Discounted Cash Flow:
+    </span>
+    <br />
+    $8
+  </p>,
+  <p
+    className="col-lg-2 price"
+  >
+    <span
+      className="fw-bold"
+    >
+       Price:
+    </span>
+    <br />
+    $10
+  </p>,
+  <p
+    className="col-lg-3"
+  >
+    <span
+      className="fw-bold"
+    >
+      Volume Average:
+    </span>
+    <br />
+    1,255
+  </p>,
+  <p
+    className="col-lg-2"
+  >
+    <span
+      className="fw-bold"
+    >
+      Changes:
+    </span>
+    <br />
+    2
+  </p>,
+  <p
+    className="col-lg-12"
+  >
+    <span
+      className="fw-bold"
+    >
+      Description:
+    </span>
+    <br />
+    Test componany for Model
+  </p>,
+]
+`;

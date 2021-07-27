@@ -1,0 +1,19 @@
+.model {
+  background-color: #f8f9fa;
+  min-height: 85vh;
+  padding: 1.5rem 0;
+  color: #212529;
+
+  .row {
+    width: 100%;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .price {
+    text-align: center;
+  }
+}
