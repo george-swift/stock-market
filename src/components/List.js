@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const List = ({
   symbol,
@@ -8,17 +9,20 @@ const List = ({
 }) => (
   <li>
     <div className="company">
-      <p className="text-white-50">{symbol}</p>
-      <h4 className="my-1">{name}</h4>
+      <div>
+        <p>{symbol}</p>
+        <h4 className="my-1">
+          <Link
+            to={`/company/${symbol}`}
+            onClick={() => getUrl(symbol)}
+            replace
+          >
+            {name}
+          </Link>
+        </h4>
+      </div>
       <small className="fst-italic text-white-50">{exchange}</small>
     </div>
-    <button
-      type="button"
-      className="btn btn-sm btn-outline-light"
-      onClick={() => getUrl(symbol)}
-    >
-      See Profile
-    </button>
   </li>
 );
 
