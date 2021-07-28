@@ -5,28 +5,26 @@ exports[`Snapshot of the List component should render correctly 1`] = `
   <div
     className="company"
   >
-    <p
-      className="text-white-50"
-    >
-      MSFT
-    </p>
-    <h4
-      className="my-1"
-    >
-      Microsoft
-    </h4>
+    <div>
+      <p>
+        MSFT
+      </p>
+      <h4
+        className="my-1"
+      >
+        <a
+          href="/company/MSFT"
+          onClick={[Function]}
+        >
+          Microsoft
+        </a>
+      </h4>
+    </div>
     <small
       className="fst-italic text-white-50"
     >
       NASDAQ
     </small>
   </div>
-  <button
-    className="btn btn-sm btn-outline-light"
-    onClick={[Function]}
-    type="button"
-  >
-    See Profile
-  </button>
 </li>
 `;

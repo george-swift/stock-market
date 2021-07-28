@@ -4,6 +4,7 @@ import {
   FILTER_LISTING,
   FILTER_MARKETS,
   FILTER_NASDAQ,
+  RESET_FILTERS,
 } from '../constants';
 
 export const fetchListingStarted = () => ({
@@ -27,4 +28,8 @@ export const filterListing = (searchTerm) => ({
 export const filterNasdaq = (searchTerm) => ({
   type: FILTER_NASDAQ,
   payload: searchTerm,
+});
+
+export const resetFilters = () => ({
+  type: RESET_FILTERS,
 });

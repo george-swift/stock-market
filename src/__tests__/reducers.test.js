@@ -9,6 +9,7 @@ import listings from '../reducers/listings';
 import nasdaq from '../reducers/nasdaq';
 import filter from '../reducers/filter';
 import notifications from '../reducers/notifications';
+import { resetFilters } from '../actions';
 
 describe('Testing the Listing reducer', () => {
   test('should be an empty array in default state', () => {
@@ -83,6 +84,15 @@ describe('Testing the Filter reducer', () => {
       ...FILTER,
       nasdaq: 'Techn',
     }));
+  });
+
+  test('should reset state when users switch pages', () => {
+    const state = {
+      ...FILTER,
+      listing: '  ',
+    };
+
+    expect(filter(state, resetFilters())).toStrictEqual(expect.objectContaining({ ...FILTER }));
   });
 });
 

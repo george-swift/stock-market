@@ -7,20 +7,11 @@ const Constituent = ({
   hq,
   getUrl,
 }) => (
-  <tr>
+  <tr role="gridcell" onClick={() => getUrl(symbol)}>
     <th scope="row">{symbol}</th>
     <td>{name}</td>
     <td>{sector}</td>
     <td>{hq || '...'}</td>
-    <td>
-      <button
-        type="button"
-        className="btn btn-sm btn-outline-dark"
-        onClick={() => getUrl(symbol)}
-      >
-        Get Data
-      </button>
-    </td>
   </tr>
 );
 

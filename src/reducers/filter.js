@@ -1,5 +1,5 @@
 import {
-  FILTER, FILTER_MARKETS, FILTER_LISTING, FILTER_NASDAQ,
+  FILTER, FILTER_MARKETS, FILTER_LISTING, FILTER_NASDAQ, RESET_FILTERS,
 } from '../constants';
 
 export default function filter(state = FILTER, action) {
@@ -23,6 +23,9 @@ export default function filter(state = FILTER, action) {
         ...state,
         nasdaq: payload,
       };
+
+    case RESET_FILTERS:
+      return { ...FILTER };
 
     default:
       return state;
