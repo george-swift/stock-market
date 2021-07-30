@@ -29,14 +29,13 @@ const Nasdaq = () => {
         />
       </div>
       {isLoading && <p className="page-loading"><FaSpinner /></p>}
-      <table className="table table-hover bg-light">
+      <table className="table table-hover bg-light" role="grid">
         <thead className="table-dark">
           <tr>
             <th scope="col">Symbol</th>
             <th scope="col">Name</th>
             <th scope="col">Sector</th>
             <th scope="col">Headquarter</th>
-            <th scope="col">Financial Model</th>
           </tr>
         </thead>
         <tbody>

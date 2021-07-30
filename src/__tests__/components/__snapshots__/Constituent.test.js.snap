@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Snapshot of the Constituent component should render correctly 1`] = `
-<tr>
+<tr
+  onClick={[Function]}
+  role="gridcell"
+>
   <th
     scope="row"
   >
@@ -16,20 +19,14 @@ exports[`Snapshot of the Constituent component should render correctly 1`] = `
   <td>
     U.S
   </td>
-  <td>
-    <button
-      className="btn btn-sm btn-outline-dark"
-      onClick={[Function]}
-      type="button"
-    >
-      Get Data
-    </button>
-  </td>
 </tr>
 `;
 
 exports[`Snapshot of the Constituent component should render correctly if hq is not provided by API 1`] = `
-<tr>
+<tr
+  onClick={[Function]}
+  role="gridcell"
+>
   <th
     scope="row"
   >
@@ -43,15 +40,6 @@ exports[`Snapshot of the Constituent component should render correctly if hq is 
   </td>
   <td>
     ...
-  </td>
-  <td>
-    <button
-      className="btn btn-sm btn-outline-dark"
-      onClick={[Function]}
-      type="button"
-    >
-      Get Data
-    </button>
   </td>
 </tr>
 `;

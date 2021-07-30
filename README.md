@@ -16,12 +16,12 @@
 - Meeting model client requirements
 
 ## Features
-Stock Market &trade; is a single page application built with React and Redux. It relies on data provided by the [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/) to display up-to-date news and stock prices covering companies listed on, but not limited to, the `NYSE` and `NASDAQ`. The `Home` page provides top stories in the stock market and a catalogue of 100 trading companies, each with their ticker symbols, name and exchange. By default, the directory catalogues companies from `All Markets`. Two other categories, `New York Stock Exchange` and the `Nasdaq Global Select` can be toggled to view companies listed. To view each listed company's financial profile, users can click on `See Profile`. The search field above can be used to look up companies by `trading symbol`. The `Stock List` page contains a list of all `NASDAQ 100` constituents. Companies can be filtered by `sector` or `symbol` using the search field. The `Get Data` button allows users to get more details for companies listed. Company details are provided in the `Financial Model` page. The `About` page contains attribution to the API backend and developer of the Stock Market app. On all pages, the `Ticker` keeps users updated with stock prices. This application is deployed to Heroku.
+Stock Market &trade; is a single page application built with React and Redux. It relies on data provided by the [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/) to display up-to-date news and stock prices covering companies listed on, but not limited to, the `NYSE` and `NASDAQ`. The `Home` page provides top stories in the stock market and a catalogue of 100 trading companies, each with their ticker symbols, name and exchange. By default, the directory catalogues companies from `All Markets`. Two other categories, `New York Stock Exchange` and the `Nasdaq Global Select` can be toggled to view companies listed. Users can click on the company's name to view its financial model. The search field above can be used to look up companies by `trading symbol`. The `Stock List` page contains a list of all `NASDAQ 100` constituents. Companies can be filtered by `sector` or `symbol` using the search field. Clicking on a row allows users to get more details for companies listed. These details are provided on the `Financial Model` page. The `About` page contains attribution to the API backend and developer of the Stock Market app. On all pages, the `Ticker` keeps users updated with stock prices. This application is deployed to Heroku.
 
 
 _Filtering companies listed on the NASDAQ 100 by sector_
 
-![](./src/assets/images/nasdaq.png)
+![](./src/assets/images/nasdaq100.png)
 
 _Viewing a company's financial model_
 

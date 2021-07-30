@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchListingStarted, fetchNasdaqStarted } from '../actions';
+import { fetchListingStarted, fetchNasdaqStarted, resetFilters } from '../actions';
 import Header from './Header';
 import Ticker from '../containers/Ticker';
 import Home from './Home';
@@ -23,10 +23,12 @@ const App = () => {
     dispatch(fetchNasdaqStarted());
   }, []);
 
+  const clearSearchOnNewPage = () => dispatch(resetFilters());
+
   return (
     <Router>
       <div className="app">
-        <Header />
+        <Header reset={clearSearchOnNewPage} />
         <Ticker />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -33,7 +33,7 @@ describe('Snapshot of the Constituent component', () => {
 
 describe('Querying the Constituent component', () => {
   beforeEach(() => render(
-    <table>
+    <table role="grid">
       <tbody>
         <Constituent symbol={symbol} name={name} sector={sector} getUrl={getUrl} />
       </tbody>
@@ -41,7 +41,7 @@ describe('Querying the Constituent component', () => {
   ));
 
   it('should be a table row with details in columns', () => {
-    const row = screen.getByRole('row');
+    const row = screen.getByRole('gridcell');
     const companySymbol = within(row).getByRole('rowheader');
     expect(companySymbol).toHaveTextContent(symbol);
     const companyName = within(row).getByText(symbol).nextSibling;
@@ -51,16 +51,13 @@ describe('Querying the Constituent component', () => {
   });
 
   it('should display ellipsis as placeholder if HQ is not provided from database', () => {
-    const row = screen.getByRole('row');
+    const row = screen.getByRole('gridcell');
     const missingHQ = within(row).getByText(sector).nextSibling;
     expect(missingHQ).toHaveTextContent('...');
   });
 
-  it("should have a button to get data on a company's financial model", () => {
-    const actionButton = screen.getByRole('button');
-    expect(actionButton).toHaveProperty('type', 'button');
-    expect(actionButton).toHaveTextContent('Get Data');
-    fireEvent.click(actionButton);
+  it("should link to a company's financial model on click", () => {
+    fireEvent.click(screen.getByRole('gridcell'));
     expect(getUrl).toHaveBeenCalledTimes(1);
   });
 });
